@@ -1114,6 +1114,7 @@ class RandomMosaic(object):
         if mosaic:
             results = self._mosaic_transform_img(results)
             results = self._mosaic_transform_seg(results)
+        
         return results
 
     def get_indexes(self, dataset):

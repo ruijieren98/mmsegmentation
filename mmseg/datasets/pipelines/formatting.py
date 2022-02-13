@@ -274,7 +274,12 @@ class Collect(object):
                 - keys in``self.keys``
                 - ``img_metas``
         """
-
+        # from matplotlib import pyplot as plt
+        # print(results['img'].shape)
+        # plt.figure()
+        # plt.imshow(results['img'])
+        # plt.savefig("/content/test.png")
+        # a
         data = {}
         img_meta = {}
         for key in self.meta_keys:
