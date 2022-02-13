@@ -414,6 +414,12 @@ class Pad(object):
 
         self._pad_img(results)
         self._pad_seg(results)
+        # from matplotlib import pyplot as plt
+        # print(results['img'].shape)
+        # plt.figure()
+        # plt.imshow(results['img'])
+        # plt.savefig("/content/test.png")
+        # a
         return results
 
     def __repr__(self):
@@ -1114,6 +1120,11 @@ class RandomMosaic(object):
         if mosaic:
             results = self._mosaic_transform_img(results)
             results = self._mosaic_transform_seg(results)
+        # print("after mosaic shape: ", results['img'].shape)
+        # from matplotlib import pyplot as plt
+        # plt.figure()
+        # plt.imshow(results['img'])
+        # plt.savefig("/content/mosaic.png")
         
         return results
 
@@ -1173,7 +1184,6 @@ class RandomMosaic(object):
                                 self.img_scale[1] / w_i)
             img_i = mmcv.imresize(
                 img_i, (int(w_i * scale_ratio_i), int(h_i * scale_ratio_i)))
-
             # compute the combine parameters
             paste_coord, crop_coord = self._mosaic_combine(
                 loc, center_position, img_i.shape[:2][::-1])
